@@ -1,19 +1,21 @@
-import * as core from '@actions/core'
-import {wait} from './wait'
+import * as core from '@actions/core';
+import { GitHub, context } from '@actions/github';
+
+type OutputType = 'string' | 'json';
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    const token = core.getInput('token', { required: true });
+    const outputType = core.getInput('output', {
+      required: true,
+    }) as OutputType;
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    if (outputType !== 'string' && outputType !== 'json') {
+    }
+    const github = new GitHub(token);
   } catch (error) {
-    if (error instanceof Error) core.setFailed(error.message)
+    core.setFailed(`Unexpected Failure. ${error}`);
   }
 }
 
-run()
+run();

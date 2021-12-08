@@ -1,5 +1,5 @@
-name: 'Your name here'
-description: 'Provide a description here'
+name: 'Changed Files'
+description: 'GitHub Action to fetch changed files.'
 author: 'Your name or organization here'
 inputs:
   milliseconds: # change this
