@@ -1,9 +1,15 @@
-name: 'Changed Files'
+name: 'File Changes Action'
 description: 'GitHub Action to fetch changed filenames in pull pequests.'
 author: 'DawChihLiou'
+
+branding:
+  icon: "file-plus"  
+  color: "black"
+  
 runs:
   using: 'node12'
   main: 'dist/index.js'
+  
 inputs:
   token:
     required: true
