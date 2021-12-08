@@ -8,10 +8,16 @@ This action returns all changed files in a pull request. The changed files inclu
 
 ### Inputs
 
-| Parameters    | Description      | Optional | Default                |
-| ------ | ---------------- | -------- | ---------------------- |
-| token  | GitHub API Token | ✔        | `secrets.GITHUB_TOKEN` |
-| output | Output format    | ✔        | `string`               |
+| Parameter | Description      | Optional | Default                |
+| --------- | ---------------- | -------- | ---------------------- |
+| token     | GitHub API Token | ✔        | `secrets.GITHUB_TOKEN` |
+| output    | Output format    | ✔        | `string`               |
+
+### Outputs
+
+| Property  | Description                                                            | Type               | Default |
+| --------- | ---------------------------------------------------------------------- | ------------------ | ------- |
+| filenames | A list of filenames in the output format given in the input parameters | `string` \| `JSON` | `""`    |
 
 #### Examples
 
