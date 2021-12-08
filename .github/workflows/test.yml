@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         id: changed-files
-        run: |
+      - run: |
           echo "${{ steps.changed-files.outputs.filenames }}"
   test-json:
     runs-on: ubuntu-latest
@@ -31,5 +31,5 @@ jobs:
         id: changed-files
         with:
           output: 'json'
-        run: |
+      - run: |
           echo "${{ steps.changed-files.outputs.filenames }}"
