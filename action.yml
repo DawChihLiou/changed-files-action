@@ -1,11 +1,25 @@
 name: 'Changed Files'
-description: 'GitHub Action to fetch changed files.'
-author: 'Your name or organization here'
-inputs:
-  milliseconds: # change this
-    required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+description: 'GitHub Action to fetch changed filenames in pull pequests.'
+author: 'DawChihLiou'
 runs:
   using: 'node12'
   main: 'dist/index.js'
+inputs:
+  token:
+    required: true
+    description: |
+      GitHub API token.
+      Default to "secrets.GITHUB_TOKEN".
+    default: ${{ github.token }}
+  output:
+    required: true
+    decription: |
+      Output format: "string" or "json".
+      If the `output` is set to "string", you will recieve a string of filenames with " " in between each filename.
+      If the `output` is set to "json", you will recieve an array of filenames in JSON.
+      Default to "string".
+    default: string
+outputs:
+  filenames:
+    description: |
+      All changed filenames, including added, modified, renamed, and removed files.

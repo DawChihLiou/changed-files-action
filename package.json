@@ -1,7 +1,7 @@
 {
   "name": "changed-files-action",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
   "description": "GitHub Action to fetch changed files.",
   "main": "lib/main.js",
   "scripts": {
@@ -19,8 +19,9 @@
   },
   "keywords": [
     "actions",
-    "node",
-    "setup"
+    "changed-files",
+    "git",
+    "octokit"
   ],
   "author": "",
   "license": "MIT",
@@ -34,8 +35,10 @@
     "@vercel/ncc": "^0.33.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-github": "^4.3.2",
     "eslint-plugin-jest": "^25.0.5",
+    "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.4.3",
     "js-yaml": "^4.1.0",
     "prettier": "2.4.1",
