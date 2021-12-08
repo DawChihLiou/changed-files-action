@@ -2,20 +2,34 @@
 
 This action returns all changed files in a pull request. The changed files includes added, modified, renamed, and removed files.
 
+- 🦄 It is actively maintained
+- 💅 Minimalistic implementation
+- 🌈 PRs and discussion are welcomed
+
 ### Inputs
 
-| Key    | Description      | Optional | Default                |
+| Parameters    | Description      | Optional | Default                |
 | ------ | ---------------- | -------- | ---------------------- |
 | token  | GitHub API Token | ✔        | `secrets.GITHUB_TOKEN` |
 | output | Output format    | ✔        | `string`               |
 
-#### Example
+#### Examples
+
+**Using The Default Parameters**
 
 The following usage will use the default GitHub token and return changed filenames in string format.
 
 ```yaml
 - uses: DawChihLiou/changed-files-action@v1
 ```
+
+The output will look like this:
+
+```bash
+.github/workflows/ci.yaml src/index.js README.md
+```
+
+**Using Custom Parameters**
 
 The following usage will use a custom GitHub toek and return changed filenames in JSON.
 
@@ -24,6 +38,12 @@ The following usage will use a custom GitHub toek and return changed filenames i
   with:
     token: ${{ secrets.YOUR_GITHUB_TOKEN }}
     output: 'json'
+```
+
+The output will look like this:
+
+```bash
+[".github/workflows/ci.yaml", "src/index.js", "README.md"]
 ```
 
 ### Using the Action
