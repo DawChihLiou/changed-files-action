@@ -34,6 +34,7 @@ The following usage will use a custom GitHub toek and return changed filenames i
   with:
     token: ${{ secrets.YOUR_GITHUB_TOKEN }}
     output: 'string'
+- name: Echo files
   run: |
     echo "${{ steps.changed-files.outputs.filenames }}"
 ```
