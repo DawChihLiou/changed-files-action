@@ -1,4 +1,4 @@
-# Changed Files GitHub Action
+# Changed Filenames GitHub Action
 
 This action returns all changed files in a pull request. The changed files includes added, modified, renamed, and removed files.
 
