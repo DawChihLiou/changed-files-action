@@ -1,5 +1,4 @@
 import * as core from '@actions/core';
-import { GitHub, context } from '@actions/github';
 
 type OutputType = 'string' | 'json';
 
@@ -12,7 +11,6 @@ async function run(): Promise<void> {
 
     if (outputType !== 'string' && outputType !== 'json') {
     }
-    const github = new GitHub(token);
   } catch (error) {
     core.setFailed(`Unexpected Failure. ${error}`);
   }
