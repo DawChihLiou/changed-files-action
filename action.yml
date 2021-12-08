@@ -1,4 +1,4 @@
-name: 'File Changes Action'
+name: 'Change Filenames'
 description: 'GitHub Action to fetch changed filenames in pull pequests.'
 author: 'DawChihLiou'
 
