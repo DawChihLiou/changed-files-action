@@ -14,13 +14,13 @@ This action returns all changed files in a pull request. The changed files inclu
 The following usage will use the default GitHub token and return changed filenames in string format.
 
 ```yaml
-- uses: DawChihLiou/changed-files@v1
+- uses: DawChihLiou/changed-files-action@v1
 ```
 
 The following usage will use a custom GitHub toek and return changed filenames in JSON.
 
 ```yaml
-- uses: DawChihLiou/changed-files@v1
+- uses: DawChihLiou/changed-files-action@v1
   with:
     token: ${{ secrets.YOUR_GITHUB_TOKEN }}
     output: 'json'
