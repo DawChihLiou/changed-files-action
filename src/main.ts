@@ -10,9 +10,9 @@ import { getInput, info, setFailed, setOutput } from '@actions/core';
 type OutputType = 'string' | 'json';
 
 async function run(): Promise<void> {
-  if (context.eventName !== 'pull_request') {
+  if (context.eventName !== 'pull_request' && context.eventName !== 'push') {
     setFailed(
-      `This action only support "pull_request" event. Recieved ${context.eventName}.`,
+      `This action only support "pull_request" and "push" event. Recieved ${context.eventName}.`,
     );
   }
 
@@ -29,8 +29,15 @@ async function run(): Promise<void> {
     }
 
     // get head and base commit SHAs for commit comparison later
-    const base: string | undefined = context.payload.pull_request?.base.sha;
-    const head: string | undefined = context.payload.pull_request?.head.sha;
+    const base: string | undefined =
+      context.eventName === 'pull_request'
+        ? context.payload.pull_request?.base.sha
+        : context.payload.before;
+
+    const head: string | undefined =
+      context.eventName === 'pull_request'
+        ? context.payload.pull_request?.head.sha
+        : context.payload.after;
 
     if (base === undefined || head === undefined) {
       throw Error(`
