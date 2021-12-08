@@ -21,8 +21,8 @@ const core_1 = __nccwpck_require__(2186);
 function run() {
     var _a, _b, _c;
     return __awaiter(this, void 0, void 0, function* () {
-        if (github_1.context.eventName !== 'pull_request') {
-            (0, core_1.setFailed)(`This action only support "pull_request" event. Recieved ${github_1.context.eventName}.`);
+        if (github_1.context.eventName !== 'pull_request' && github_1.context.eventName !== 'push') {
+            (0, core_1.setFailed)(`This action only support "pull_request" and "push" event. Recieved ${github_1.context.eventName}.`);
         }
         try {
             // the "output" constraint is defined in `action.yaml`
@@ -33,8 +33,12 @@ function run() {
                 (0, core_1.setFailed)(`output is required to be "string" or "json. Recieved ${outputType}`);
             }
             // get head and base commit SHAs for commit comparison later
-            const base = (_a = github_1.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.base.sha;
-            const head = (_b = github_1.context.payload.pull_request) === null || _b === void 0 ? void 0 : _b.head.sha;
+            const base = github_1.context.eventName === 'pull_request'
+                ? (_a = github_1.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.base.sha
+                : github_1.context.payload.before;
+            const head = github_1.context.eventName === 'pull_request'
+                ? (_b = github_1.context.payload.pull_request) === null || _b === void 0 ? void 0 : _b.head.sha
+                : github_1.context.payload.after;
             if (base === undefined || head === undefined) {
                 throw Error(`
 Base commit SHA or Head commit SHA is missing.
