@@ -33,7 +33,7 @@
     "@types/node": "^18.0.3",
     "@typescript-eslint/parser": "^5.8.1",
     "@typescript-eslint/parser": "^5.10.1",
-    "@typescript-eslint/parser": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.6",
     "@vercel/ncc": "^0.34.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.19.0",
